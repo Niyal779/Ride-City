@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111820">
+  <title>RIDE / CITY</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main id="game" class="game">
+    <canvas id="world" aria-label="Ride through the city using the keyboard"></canvas>
+    <a class="developer-credit" href="https://niyal.netlify.app/" target="_blank" rel="noopener noreferrer">DEVELOPED BY NIYAL RAHAMAN <span>↗</span></a>
+    <section id="title-screen" class="veil title-screen">
+      <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><p>Every street is yours.</p><button id="start-button">START RIDING <span>↗</span></button><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
+    </section>
+    <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>FREE RIDE</b><small>DOWNTOWN DISTRICT</small></div><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
+    <section id="speed-panel" class="speed hidden"><div class="speed-num"><span id="speed">0</span><small>KM/H</small></div><div class="speed-rule"><i id="speed-bar"></i></div><div class="gear"><span id="gear">N</span> <small>GEAR</small></div></section>
+    <div id="right-info" class="right-info hidden"><div id="clock" class="clock">12:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div></div>
+    <div id="mini-map" class="mini-map hidden"><canvas id="map" width="150" height="150"></canvas><div class="map-label">DOWNTOWN</div></div>
+    <div id="hints" class="bottom-hint hidden"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>A LEFT · D RIGHT</span><kbd>SHIFT</kbd><span>RUN / BOOST</span><kbd>E</kbd><span>ENTER / EXIT</span><kbd>B</kbd><span>CALL BIKE</span><kbd>F</kbd><span>HIT</span><kbd>C</kbd><span>CAMERA</span><kbd>ESC</kbd><span>PAUSE</span></div>
+    <div id="touch-controls" class="touch-controls hidden" aria-label="Touch game controls">
+      <div class="touch-steer"><button type="button" data-key="a" aria-label="Turn left">◀</button><button type="button" data-key="d" aria-label="Turn right">▶</button></div>
+      <div class="touch-drive"><button type="button" data-key="w" class="touch-go" aria-label="Accelerate">▲</button><button type="button" data-key="s" aria-label="Brake or reverse">▼</button><button type="button" data-key="shift" aria-label="Boost or run">BOOST</button><button type="button" data-key="space" aria-label="Handbrake">HAND</button></div>
+      <div class="touch-actions"><button type="button" data-action="e">E · RIDE</button><button type="button" data-action="f">F · HIT</button><button type="button" data-action="b">B · BIKE</button><button type="button" data-action="c">C · CAM</button></div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <section id="pause-screen" class="veil menu hidden"><div class="menu-card"><div class="eyebrow">RIDE / CITY</div><h2>PAUSED</h2><button id="resume-button">RESUME <span>↗</span></button><button id="restart-button" class="secondary">RESTART RIDE</button><div class="control-list"><b>WASD / ARROWS</b><span>ACCELERATE · STEER · BRAKE</span><b>SHIFT</b><span>BOOST</span><b>C</b><span>CAMERA</span><b>SPACE</b><span>HANDBRAKE</span></div></div></section>
+    <div id="load-error" class="load-error hidden">লোকাল 3D ফাইলটি পাওয়া যায়নি। প্রজেক্টের ফাইলগুলো একই ফোল্ডারে আছে কি না দেখুন।</div>
+  </main>
+  <script>
+    // Keep the start/pause interface responsive even if the 3D script fails.
+    (() => {
+      const byId = id => document.getElementById(id);
+      window.addEventListener('error', event => {
+        window.__lastRideError = event.message || 'script could not load';
+        const warning = byId('load-error');
+        warning.textContent = 'JavaScript error: ' + window.__lastRideError;
+        warning.classList.remove('hidden');
+      });
+      window.addEventListener('unhandledrejection', event => {
+        const warning = byId('load-error');
+        warning.textContent = 'Game error: ' + String(event.reason || 'unknown error');
+        warning.classList.remove('hidden');
+      });
+      const start = () => {
+        byId('title-screen').classList.add('hidden');
+        byId('pause-screen').classList.add('hidden');
+        ['hud','speed-panel','right-info','mini-map','hints','touch-controls'].forEach(id => byId(id).classList.remove('hidden'));
+      };
+      byId('start-button').addEventListener('click', start);
+      byId('resume-button').addEventListener('click', start);
+      byId('pause-button').addEventListener('click', () => byId('pause-screen').classList.remove('hidden'));
+      byId('restart-button').addEventListener('click', start);
+      setTimeout(() => {
+        if (!window.__rideGameReady) {
+          const warning = byId('load-error');
+          warning.textContent = window.__lastRideError ? 'JavaScript error: ' + window.__lastRideError : !window.__rideGameEntered ? 'game.js চালু হয়নি; পেজের source script check করুন।' : !window.__rideHasThree ? 'three.min.js লোড হয়নি।' : !window.__rideRendererCreated ? 'WebGL renderer তৈরি হয়নি।' : '3D render শুরু হয়নি।';
+          warning.classList.remove('hidden');
+        }
+      }, 8000);
+    })();
+  </script>
+  <script src="three.min.js?v=128" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+  <script src="game.js?v=129" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+</body>
+</html>
