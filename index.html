@@ -7,13 +7,13 @@
   <title>RIDE CITY</title>
   <link rel="icon" type="image/png" href="Ride%20City%20Logo.png?v=1">
   <link rel="apple-touch-icon" href="Ride%20City%20Logo.png?v=1">
-  <link rel="stylesheet" href="game.css?v=179">
+  <link rel="stylesheet" href="game.css?v=186">
 </head>
 <body>
   <main id="game" class="game">
     <canvas id="world" aria-label="Ride through the city using the keyboard"></canvas>
     <a class="developer-credit" href="https://niyal.netlify.app/" target="_blank" rel="noopener noreferrer">DESIGNED BY <b>NIYAL</b> <span>↗</span></a>
-    <section id="title-screen" class="veil title-screen">
+    <section id="title-screen" class="veil title-screen"><button id="menu-music-toggle" class="menu-music-toggle" type="button" aria-pressed="false" title="Home music starts on first tap">♫ MUSIC</button>
       <div class="title-poster" aria-hidden="true"><picture><source media="(max-width: 900px)" srcset="ride-city-poster-mobile.svg?v=2"><img src="ride-city-poster.svg?v=4" alt=""></picture><div class="poster-stamp">RIDE / CITY <span>OPEN WORLD EDITION</span></div></div>
       <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><div class="title-byline">A GAME BY NIYAL</div><div class="title-actions"><button id="start-button">START RIDING <span>↗</span></button><button id="how-to-button" class="howto-trigger" type="button">HOW TO PLAY <span>＋</span></button></div><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
     </section>
@@ -93,6 +93,10 @@
         const startButton = byId('start-button');
         startButton.disabled = true;
         if (window.__rideAudioStart) window.__rideAudioStart();
+        if (matchMedia('(pointer: coarse)').matches && innerWidth <= 900 && document.documentElement.requestFullscreen) {
+          const fullscreenRequest = document.documentElement.requestFullscreen();
+          if (fullscreenRequest && fullscreenRequest.catch) fullscreenRequest.catch(() => {});
+        }
         byId('title-screen').classList.add('hidden');
         ready.classList.remove('hidden');
         ready.classList.remove('play');
@@ -101,6 +105,7 @@
         setTimeout(() => {
           ready.classList.add('hidden');
           ready.classList.remove('play');
+          if (window.__rideMenuMusicStop) window.__rideMenuMusicStop();
           if (window.__rideGameStart) window.__rideGameStart();
           else start();
           startButton.disabled = false;
@@ -119,6 +124,6 @@
     })();
   </script>
   <script src="three.min.js?v=128" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
-  <script src="game.js?v=215" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+  <script src="game.js?v=236" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
 </body>
 </html>

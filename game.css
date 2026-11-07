@@ -195,3 +195,40 @@
 .lighting-modes{display:flex;justify-content:flex-end;gap:5px;width:190px;margin-top:9px}
 .lighting-modes .day-night-button{flex:1;min-width:0;height:30px;margin-top:0;padding:0 8px;font-size:8px;letter-spacing:.1em}
 @media(max-width:760px){.lighting-modes{width:164px;margin-top:6px}.lighting-modes .day-night-button{height:28px;padding:0 6px;font-size:7px}}
+
+/* Phone-only full-viewport sizing and clearer touch targets. */
+@media (pointer:coarse) and (max-width:900px){
+  html,body{width:100%;height:100%;height:100dvh;overflow:hidden;overscroll-behavior:none}
+  .game{position:fixed;inset:0;width:100vw;height:100dvh;min-height:100dvh;max-height:100dvh;overflow:hidden;touch-action:none}
+  #world{width:100vw;height:100dvh;touch-action:none}
+  .lighting-modes{width:176px;gap:6px}
+  .lighting-modes .day-night-button{height:32px;font-size:8px;letter-spacing:.08em}
+  .touch-tip{font-size:8px;padding:6px 9px}
+}
+
+/* Phone framing: widen the world view and keep the greeting out of the road view. */
+@media (pointer:coarse) and (max-width:900px) and (orientation:portrait){
+  .welcome-intro{width:min(300px,calc(100vw - 24px))}
+  .welcome-card{min-height:58px;padding:8px;gap:7px}
+  .welcome-avatar{width:32px;height:32px;flex-basis:32px;font-size:16px}
+  .welcome-copy strong{font-size:14px;letter-spacing:.04em}
+  .welcome-copy small{font-size:6px}
+}
+
+/* Keep the mobile movement joystick visible at a fixed thumb position. */
+@media (pointer:coarse) and (max-width:900px){
+  .touch-stick{display:block!important;left:calc(12px + env(safe-area-inset-left))!important;right:auto!important;top:auto!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;width:clamp(112px,30vw,132px);height:clamp(112px,30vw,132px);margin:0!important;opacity:.86}
+  .touch-stick-knob{left:50%;top:50%}
+}
+@media (pointer:coarse) and (max-width:900px) and (orientation:landscape){.touch-stick{width:112px;height:112px}}@media (pointer:coarse) and (max-width:900px){.developer-credit{left:max(10px,env(safe-area-inset-left));top:calc(166px + env(safe-area-inset-top));bottom:auto}}
+
+/* Phone thumb layout: actions left, fixed movement joystick right. */
+@media (pointer:coarse) and (max-width:900px){
+  .touch-actions{left:max(8px,env(safe-area-inset-left))!important;right:auto!important}
+  .touch-stick{left:auto!important;right:calc(12px + env(safe-area-inset-right))!important}
+}
+
+/* Home page music toggle */
+.title-screen .menu-music-toggle{position:absolute;z-index:4;top:20px;right:20px;width:auto;min-width:0;height:38px;padding:0 15px;justify-content:center;border:1px solid rgba(229,181,111,.7);border-radius:999px;background:rgba(15,23,25,.78);color:#f3dfbf;font:800 9px 'DM Mono',monospace;letter-spacing:.11em;backdrop-filter:blur(6px)}
+.title-screen .menu-music-toggle:hover{background:rgba(45,55,51,.96);color:#fff1d8}
+@media(max-width:900px){.title-screen .menu-music-toggle{top:calc(12px + env(safe-area-inset-top));right:14px;height:34px;padding:0 12px;font-size:8px}}
