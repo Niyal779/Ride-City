@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#111820">
-  <title>RIDE / CITY</title>
+  <title>RIDE CITY</title>
   <link rel="icon" type="image/png" href="Ride%20City%20Logo.png?v=1">
   <link rel="apple-touch-icon" href="Ride%20City%20Logo.png?v=1">
-  <link rel="stylesheet" href="game.css?v=156">
+  <link rel="stylesheet" href="game.css?v=175">
 </head>
 <body>
   <main id="game" class="game">
@@ -18,10 +18,10 @@
       <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><div class="title-byline">A GAME BY NIYAL</div><button id="start-button">START RIDING <span>↗</span></button><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
     </section>
     <section id="ready-screen" class="ready-screen hidden" aria-live="polite"><div class="ready-word">READY</div><div class="ready-game">A NIYAL'S GAME</div></section>
-    <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>FREE RIDE</b><small>DOWNTOWN DISTRICT</small></div><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
+    <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>RIDE CITY</b><small>A GAME BY NIYAL</small></div><button id="sound-button" class="pause-btn sound-btn" type="button" aria-label="Mute sound" title="Toggle sound">♪</button><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
     <section id="speed-panel" class="speed hidden"><div class="speed-num"><span id="speed">0</span><small>KM/H</small></div><div class="speed-rule"><i id="speed-bar"></i></div><div class="gear"><span id="gear">N</span> <small>GEAR</small></div></section>
     <div id="right-info" class="right-info hidden"><div id="clock" class="clock">22:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div><button id="day-night-button" class="day-night-button" type="button" aria-pressed="true">DAY MODE</button><button id="pause-night-button" class="pause-night-button" type="button" aria-label="Pause game" title="Pause game"><span aria-hidden="true"></span></button></div>
-    <div id="mini-map" class="mini-map hidden"><div class="map-head"><span>RIDE / CITY</span><b>LIVE</b></div><canvas id="map" width="220" height="220"></canvas><div class="map-label"><strong>DOWNTOWN</strong><small>YOU ARE HERE</small></div></div>
+    <div id="mini-map" class="mini-map hidden"><div class="map-head"><span>RIDE / CITY</span><b>LIVE</b></div><canvas id="map" width="220" height="220"></canvas><div class="map-label"><strong>H = HOME</strong><small>HOME LOCATION</small></div></div>
     <div id="hints" class="bottom-hint hidden" aria-label="Keyboard controls">
       <div class="hint-control hint-move"><div class="wasd-keys"><kbd>W</kbd><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div></div><div class="hint-copy"><b>RIDE</b><small>MOVE</small></div></div>
       <div class="hint-control"><kbd class="wide-key">SHIFT</kbd><div class="hint-copy"><b>RUN / BOOST</b><small>ON FOOT / VEHICLE</small></div></div>
@@ -34,15 +34,19 @@
       <div class="touch-tip">TAP TO GO · DRAG TO STEER · PULL DOWN TO REVERSE</div>
       <div id="touch-stick" class="touch-stick" aria-hidden="true"><div class="touch-stick-knob"></div></div>
       <div class="touch-actions">
-        <button type="button" data-key="shift" class="touch-boost">BOOST</button>
-        <button type="button" data-key="space">JUMP</button>
-        <button type="button" data-action="e">E · RIDE</button>
-        <button type="button" data-action="b">B · BIKE</button>
-        <button type="button" data-action="c">C · CAM</button>
-        <button type="button" data-action="f">F RIDE</button><button type="button" data-action="enter">ENTER HIT</button>
+        <div class="touch-secondary-actions">
+          <button type="button" data-key="space">JUMP</button>
+          <button type="button" data-action="c">CAM</button>
+          <button type="button" data-action="enter">HIT</button>
+        </div>
+        <div class="touch-primary-actions">
+          <button type="button" data-action="f" class="touch-car"><b>F · CAR</b><small>ENTER / EXIT</small></button>
+          <button type="button" data-key="shift" class="touch-boost">BOOST</button>
+          <button type="button" data-action="b" class="touch-bike">B · BIKE</button>
+        </div>
       </div>
     </div>
-    <div id="context-help" class="context-help" aria-live="polite"></div><div id="toast" class="toast"></div>
+    <div id="welcome-intro" class="welcome-intro hidden" aria-live="polite"><div class="welcome-card"><div class="welcome-avatar">N<span>+</span></div><div class="welcome-copy"><small>RIDE / CITY HOST</small><strong id="welcome-line">HI, I'M NIYAL</strong></div><button id="welcome-start" class="welcome-start" type="button">LET'S RIDE</button></div></div><div id="direction-pad" class="direction-pad hidden" aria-label="Movement controls"><button type="button" class="pad-up" data-key="w" aria-label="Move forward">&#9650;</button><button type="button" class="pad-left" data-key="a" aria-label="Turn left">&#9664;</button><span class="pad-center">MOVE</span><button type="button" class="pad-right" data-key="d" aria-label="Turn right">&#9654;</button><button type="button" class="pad-down" data-key="s" aria-label="Move backward">&#9660;</button></div><div id="context-help" class="context-help" aria-live="polite"></div><div id="toast" class="toast"></div>
     <section id="pause-screen" class="veil menu hidden"><div class="menu-card"><div class="eyebrow">RIDE / CITY</div><h2>PAUSED</h2><button id="resume-button">RESUME <span>↗</span></button><button id="restart-button" class="secondary">RESTART RIDE</button><div class="control-list"><b>WASD / ARROWS</b><span>ACCELERATE / STEER / BRAKE</span><b>SHIFT</b><span>RUN / BOOST</span><b>F / E</b><span>ENTER / EXIT VEHICLE</span><b>ENTER</b><span>HIT (ON FOOT)</span><b>SPACE</b><span>JUMP / HANDBRAKE</span><b>C</b><span>CAMERA</span></div></div></section>
     <div id="load-error" class="load-error hidden">Local 3D file not found. Check that all project files are in the same folder.</div>
   </main>
@@ -72,6 +76,7 @@
         const ready = byId('ready-screen');
         const startButton = byId('start-button');
         startButton.disabled = true;
+        if (window.__rideAudioStart) window.__rideAudioStart();
         byId('title-screen').classList.add('hidden');
         ready.classList.remove('hidden');
         ready.classList.remove('play');
@@ -98,6 +103,6 @@
     })();
   </script>
   <script src="three.min.js?v=128" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
-  <script src="game.js?v=156" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+  <script src="game.js?v=181" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
 </body>
 </html>
