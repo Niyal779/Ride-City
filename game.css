@@ -170,3 +170,28 @@
 @media(max-width:900px),(pointer:coarse) and (max-width:1200px){.touch-actions .touch-primary-actions .touch-car{background:linear-gradient(145deg,#bf8c4c,#69492d)!important;border:1px solid #f0c47f!important;color:#fff7e8!important}}
 
 .touch-controls{display:none}
+
+/* Home-page How to Play guide */
+.title-actions{display:grid;gap:9px;width:min(244px,88vw)}
+.title-actions button{width:100%;min-width:0}
+.title-actions .howto-trigger{height:44px;justify-content:space-between;border:1px solid rgba(229,181,111,.72);background:rgba(15,23,25,.78);color:#f3dfbf;font-size:10px;letter-spacing:.14em}
+.title-actions .howto-trigger:hover{background:rgba(45,55,51,.96);color:#fff1d8}
+.howto-dialog{width:min(720px,calc(100vw - 30px));max-width:none;max-height:min(88dvh,850px);padding:0;border:1px solid rgba(229,181,111,.78);border-radius:16px;background:linear-gradient(145deg,#172124,#101719);color:#f4f1e9;box-shadow:0 24px 90px #000b;overflow:hidden}
+.howto-dialog::backdrop{background:rgba(3,7,9,.78);backdrop-filter:blur(5px)}
+.howto-head{display:flex;justify-content:space-between;align-items:center;padding:22px 26px 15px;border-bottom:1px solid rgba(229,181,111,.25)}
+.howto-head h2{margin:7px 0 0;font:900 40px/.95 'Barlow Condensed',Impact,sans-serif;letter-spacing:.04em;color:#f6e6ca}
+.howto-close{width:38px;height:38px;border:1px solid #ffffff35;border-radius:50%;background:#222d30;color:#f6e6ca;font:26px/1 Arial;cursor:pointer}
+.howto-content{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 22px;max-height:calc(min(88dvh,850px) - 150px);overflow-y:auto;overscroll-behavior:contain}
+.howto-content section{padding:13px 15px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.035)}
+.howto-content .howto-about{grid-column:1/-1}
+.howto-content h3{margin:0 0 8px;color:#e7b46d;font:800 11px 'DM Mono',monospace;letter-spacing:.13em}
+.howto-content p,.howto-content li{color:#c9cfca;font:500 12px/1.65 Manrope,Arial,sans-serif}
+.howto-content p{margin:0}.howto-content ul{margin:0;padding-left:17px}.howto-content li+li{margin-top:4px}
+.howto-content kbd{display:inline-block;min-width:23px;padding:2px 5px;border:1px solid #9f835d;border-bottom-width:2px;border-radius:4px;background:#202a2b;color:#f2d5a3;text-align:center;font:700 10px 'DM Mono',monospace}
+.howto-content b{color:#f2d5a3}.howto-foot{padding:12px 24px 16px;border-top:1px solid rgba(229,181,111,.2);color:#e4b978;font:700 9px 'DM Mono',monospace;letter-spacing:.1em}
+@media(max-width:620px){.title-actions{width:min(230px,82vw);gap:8px}.title-actions .howto-trigger{height:40px}.howto-dialog{width:calc(100vw - 20px);max-height:calc(100dvh - 24px);border-radius:12px}.howto-head{padding:16px 16px 12px}.howto-head h2{font-size:34px}.howto-content{grid-template-columns:1fr;gap:9px;padding:12px;max-height:calc(100dvh - 142px)}.howto-content .howto-about{grid-column:auto}.howto-content section{padding:11px 12px}.howto-content p,.howto-content li{font-size:11px}.howto-foot{padding:10px 14px 13px;font-size:8px}}
+
+/* Fixed DAY and NIGHT buttons; the unselected startup is the automatic cycle. */
+.lighting-modes{display:flex;justify-content:flex-end;gap:5px;width:190px;margin-top:9px}
+.lighting-modes .day-night-button{flex:1;min-width:0;height:30px;margin-top:0;padding:0 8px;font-size:8px;letter-spacing:.1em}
+@media(max-width:760px){.lighting-modes{width:164px;margin-top:6px}.lighting-modes .day-night-button{height:28px;padding:0 6px;font-size:7px}}

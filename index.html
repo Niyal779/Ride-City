@@ -7,7 +7,7 @@
   <title>RIDE CITY</title>
   <link rel="icon" type="image/png" href="Ride%20City%20Logo.png?v=1">
   <link rel="apple-touch-icon" href="Ride%20City%20Logo.png?v=1">
-  <link rel="stylesheet" href="game.css?v=175">
+  <link rel="stylesheet" href="game.css?v=179">
 </head>
 <body>
   <main id="game" class="game">
@@ -15,12 +15,23 @@
     <a class="developer-credit" href="https://niyal.netlify.app/" target="_blank" rel="noopener noreferrer">DESIGNED BY <b>NIYAL</b> <span>↗</span></a>
     <section id="title-screen" class="veil title-screen">
       <div class="title-poster" aria-hidden="true"><picture><source media="(max-width: 900px)" srcset="ride-city-poster-mobile.svg?v=2"><img src="ride-city-poster.svg?v=4" alt=""></picture><div class="poster-stamp">RIDE / CITY <span>OPEN WORLD EDITION</span></div></div>
-      <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><div class="title-byline">A GAME BY NIYAL</div><button id="start-button">START RIDING <span>↗</span></button><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
+      <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><div class="title-byline">A GAME BY NIYAL</div><div class="title-actions"><button id="start-button">START RIDING <span>↗</span></button><button id="how-to-button" class="howto-trigger" type="button">HOW TO PLAY <span>＋</span></button></div><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
     </section>
+    <dialog id="how-to-play" class="howto-dialog" aria-labelledby="howto-title">
+      <div class="howto-head"><div><div class="eyebrow">RIDE / CITY FIELD GUIDE</div><h2 id="howto-title">HOW TO PLAY</h2></div><button id="how-to-close" class="howto-close" type="button" aria-label="Close instructions">×</button></div>
+      <div class="howto-content">
+        <section class="howto-about"><h3>ABOUT THE GAME</h3><p>Ride City is a small open-world city ride. Start at Niyal's home, walk to the parking area, choose a bike or car, and explore the streets at your own pace. Traffic moves around the city, and the day/night cycle changes the city lighting.</p></section>
+        <section><h3>ON FOOT</h3><ul><li><kbd>W</kbd> / <kbd>↑</kbd> walk forward; <kbd>S</kbd> / <kbd>↓</kbd> walk back.</li><li><kbd>A</kbd> and <kbd>D</kbd> turn left and right.</li><li><kbd>SHIFT</kbd> hold to run; <kbd>SPACE</kbd> to jump.</li><li><kbd>ENTER</kbd> to perform a melee hit.</li></ul></section>
+        <section><h3>BIKES AND CARS</h3><ul><li>Walk close to a parked or stopped vehicle, then press <kbd>E</kbd> or <kbd>F</kbd> to get in. Press again to get out.</li><li><kbd>W</kbd> accelerate, <kbd>S</kbd> brake or reverse, and <kbd>A</kbd>/<kbd>D</kbd> steer.</li><li>Hold <kbd>SHIFT</kbd> for boost. On a bike, <kbd>SPACE</kbd> works as a handbrake.</li><li>Press <kbd>B</kbd> to call your bike nearby.</li></ul></section>
+        <section><h3>CAMERA AND CITY</h3><ul><li><kbd>C</kbd> changes between chase and first-person camera.</li><li>Drag the screen or mouse to look around; use the mouse wheel to zoom.</li><li>Use the <b>DAY MODE / NIGHT MODE</b> control to switch lighting. The cycle can also change automatically during a ride.</li><li>The mini-map shows nearby streets and marks your home with <b>H</b>. <kbd>ESC</kbd> pauses the game.</li></ul></section>
+        <section class="howto-phone"><h3>PHONE TOUCH CONTROLS</h3><ul><li>Hold and move the left joystick to walk or steer; drag the right side to turn the camera.</li><li>Use the on-screen <b>F · CAR</b>, <b>B · BIKE</b>, <b>BOOST</b>, <b>CAM</b>, <b>HIT</b>, and <b>JUMP</b> controls.</li></ul></section>
+      </div>
+      <div class="howto-foot">TIP · Start on foot, walk beside a vehicle, then press E or F.</div>
+    </dialog>
     <section id="ready-screen" class="ready-screen hidden" aria-live="polite"><div class="ready-word">READY</div><div class="ready-game">A NIYAL'S GAME</div></section>
     <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>RIDE CITY</b><small>A GAME BY NIYAL</small></div><button id="sound-button" class="pause-btn sound-btn" type="button" aria-label="Mute sound" title="Toggle sound">♪</button><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
     <section id="speed-panel" class="speed hidden"><div class="speed-num"><span id="speed">0</span><small>KM/H</small></div><div class="speed-rule"><i id="speed-bar"></i></div><div class="gear"><span id="gear">N</span> <small>GEAR</small></div></section>
-    <div id="right-info" class="right-info hidden"><div id="clock" class="clock">22:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div><button id="day-night-button" class="day-night-button" type="button" aria-pressed="true">DAY MODE</button><button id="pause-night-button" class="pause-night-button" type="button" aria-label="Pause game" title="Pause game"><span aria-hidden="true"></span></button></div>
+    <div id="right-info" class="right-info hidden"><div id="clock" class="clock">22:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div><div class="lighting-modes" role="group" aria-label="Lighting mode"><button id="auto-mode-button" class="day-night-button" type="button" aria-pressed="true" title="Night start · switches every 20 seconds">AUTO · 20S</button><button id="day-night-button" class="day-night-button" type="button" aria-pressed="false" title="Click to switch mode and lock it">DAY</button></div><button id="pause-night-button" class="pause-night-button" type="button" aria-label="Pause game" title="Pause game"><span aria-hidden="true"></span></button></div>
     <div id="mini-map" class="mini-map hidden"><div class="map-head"><span>RIDE / CITY</span><b>LIVE</b></div><canvas id="map" width="220" height="220"></canvas><div class="map-label"><strong>H = HOME</strong><small>HOME LOCATION</small></div></div>
     <div id="hints" class="bottom-hint hidden" aria-label="Keyboard controls">
       <div class="hint-control hint-move"><div class="wasd-keys"><kbd>W</kbd><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div></div><div class="hint-copy"><b>RIDE</b><small>MOVE</small></div></div>
@@ -31,7 +42,7 @@
       <div class="hint-control"><kbd>C</kbd><div class="hint-copy"><b>CAMERA</b><small>CHANGE VIEW</small></div></div>
     </div>
     <div id="touch-controls" class="touch-controls hidden" aria-label="Touch game controls">
-      <div class="touch-tip">TAP TO GO · DRAG TO STEER · PULL DOWN TO REVERSE</div>
+      <div class="touch-tip">LEFT: MOVE · RIGHT: CAMERA · HOLD TO MOVE</div>
       <div id="touch-stick" class="touch-stick" aria-hidden="true"><div class="touch-stick-knob"></div></div>
       <div class="touch-actions">
         <div class="touch-secondary-actions">
@@ -72,6 +83,11 @@
         byId('pause-screen').classList.add('hidden');
         ['hud','speed-panel','right-info','mini-map','hints','touch-controls'].forEach(id => byId(id).classList.remove('hidden'));
       };
+      const howToDialog = byId('how-to-play');
+      byId('how-to-button').addEventListener('click', () => howToDialog.showModal());
+      byId('how-to-close').addEventListener('click', () => howToDialog.close());
+      howToDialog.addEventListener('click', event => { if (event.target === howToDialog) howToDialog.close(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && howToDialog.open) { event.stopPropagation(); howToDialog.close(); } }, true);
       byId('start-button').addEventListener('click', () => {
         const ready = byId('ready-screen');
         const startButton = byId('start-button');
@@ -103,6 +119,6 @@
     })();
   </script>
   <script src="three.min.js?v=128" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
-  <script src="game.js?v=181" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+  <script src="game.js?v=215" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
 </body>
 </html>
