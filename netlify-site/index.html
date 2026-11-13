@@ -4,29 +4,63 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#111820">
-  <title>RIDE / CITY</title>
-  <link rel="stylesheet" href="game.css">
+  <title>RIDE CITY</title>
+  <link rel="icon" type="image/png" href="Ride%20City%20Logo.png?v=1">
+  <link rel="apple-touch-icon" href="Ride%20City%20Logo.png?v=1">
+  <link rel="stylesheet" href="game.css?v=186">
 </head>
 <body>
   <main id="game" class="game">
     <canvas id="world" aria-label="Ride through the city using the keyboard"></canvas>
-    <a class="developer-credit" href="https://niyal.netlify.app/" target="_blank" rel="noopener noreferrer">DEVELOPED BY NIYAL RAHAMAN <span>↗</span></a>
-    <section id="title-screen" class="veil title-screen">
-      <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><p>Every street is yours.</p><button id="start-button">START RIDING <span>↗</span></button><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
+    <a class="developer-credit" href="https://niyal.netlify.app/" target="_blank" rel="noopener noreferrer">DESIGNED BY <b>NIYAL</b> <span>↗</span></a>
+    <section id="title-screen" class="veil title-screen"><button id="menu-music-toggle" class="menu-music-toggle" type="button" aria-pressed="false" title="Home music starts on first tap">♫ MUSIC</button>
+      <div class="title-poster" aria-hidden="true"><picture><source media="(max-width: 900px)" srcset="ride-city-poster-mobile.svg?v=2"><img src="ride-city-poster.svg?v=4" alt=""></picture><div class="poster-stamp">RIDE / CITY <span>OPEN WORLD EDITION</span></div></div>
+      <div class="title-inner"><div class="eyebrow">OPEN CITY MOTORSPORT</div><h1>RIDE<span>/</span><br>CITY</h1><div class="title-byline">A GAME BY NIYAL</div><div class="title-actions"><button id="start-button">START RIDING <span>↗</span></button><button id="how-to-button" class="howto-trigger" type="button">HOW TO PLAY <span>＋</span></button></div><div class="title-foot">A SMALL OPEN WORLD · BUILT TO ROAM</div></div>
     </section>
-    <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>FREE RIDE</b><small>DOWNTOWN DISTRICT</small></div><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
+    <dialog id="how-to-play" class="howto-dialog" aria-labelledby="howto-title">
+      <div class="howto-head"><div><div class="eyebrow">RIDE / CITY FIELD GUIDE</div><h2 id="howto-title">HOW TO PLAY</h2></div><button id="how-to-close" class="howto-close" type="button" aria-label="Close instructions">×</button></div>
+      <div class="howto-content">
+        <section class="howto-about"><h3>ABOUT THE GAME</h3><p>Ride City is a small open-world city ride. Start at Niyal's home, walk to the parking area, choose a bike or car, and explore the streets at your own pace. Traffic moves around the city, and the day/night cycle changes the city lighting.</p></section>
+        <section><h3>ON FOOT</h3><ul><li><kbd>W</kbd> / <kbd>↑</kbd> walk forward; <kbd>S</kbd> / <kbd>↓</kbd> walk back.</li><li><kbd>A</kbd> and <kbd>D</kbd> turn left and right.</li><li><kbd>SHIFT</kbd> hold to run; <kbd>SPACE</kbd> to jump.</li><li><kbd>P</kbd> to fire while on foot; a pedestrian hit by a shot stays down. <kbd>ENTER</kbd> is a close melee hit.</li></ul></section>
+        <section><h3>BIKES AND CARS</h3><ul><li>Walk close to a parked or stopped vehicle, then press <kbd>E</kbd> or <kbd>F</kbd> to get in. Press again to get out.</li><li><kbd>W</kbd> accelerate, <kbd>S</kbd> brake or reverse, and <kbd>A</kbd>/<kbd>D</kbd> steer.</li><li>Hold <kbd>SHIFT</kbd> for boost. On a bike, <kbd>SPACE</kbd> works as a handbrake.</li><li>Press <kbd>B</kbd> to call your bike nearby.</li></ul></section>
+        <section><h3>HELICOPTER AND TANK</h3><ul><li>Press <kbd>H</kbd> to spawn your helicopter or <kbd>T</kbd> to spawn your tank nearby; then walk close and press <kbd>E</kbd> or <kbd>F</kbd> to enter.</li><li>In the helicopter, hold <kbd>W</kbd> to lift and fly forward, <kbd>S</kbd> to descend, and <kbd>A</kbd>/<kbd>D</kbd> to turn. Hold <kbd>SHIFT</kbd> for more flight speed.</li><li>In the tank, use <kbd>W</kbd>/<kbd>S</kbd> to drive and <kbd>A</kbd>/<kbd>D</kbd> to steer. Hold <kbd>SPACE</kbd> to fire shells; a shell can flip a car or bus it hits.</li><li>Press <kbd>E</kbd> or <kbd>F</kbd> again to exit either vehicle.</li></ul></section>
+        <section><h3>CAMERA AND CITY</h3><ul><li><kbd>C</kbd> changes between chase and first-person camera.</li><li>Drag the screen or mouse to look around; use the mouse wheel to zoom.</li><li>Use the <b>DAY MODE / NIGHT MODE</b> control to switch lighting. The cycle can also change automatically during a ride.</li><li>The mini-map shows nearby streets and marks your home with <b>H</b>. <kbd>ESC</kbd> pauses the game.</li></ul></section>
+        <section class="howto-phone"><h3>PHONE TOUCH CONTROLS</h3><ul><li>Hold and move the left joystick to walk or steer; drag the right side to turn the camera.</li><li>Use the on-screen <b>F · CAR</b>, <b>B · BIKE</b>, <b>BOOST</b>, <b>CAM</b>, <b>HIT</b>, and <b>JUMP</b> controls.</li></ul></section>
+      </div>
+      <div class="howto-foot">TIP · Start on foot, walk beside a vehicle, then press E or F.</div>
+    </dialog>
+    <section id="ready-screen" class="ready-screen hidden" aria-live="polite"><div class="ready-word">READY</div><div class="ready-game">A NIYAL'S GAME</div></section>
+    <header id="hud" class="topbar hidden"><div class="brand">R<span>/</span>C</div><div class="location"><b>RIDE CITY</b><small>A GAME BY NIYAL</small></div><button id="sound-button" class="pause-btn sound-btn" type="button" aria-label="Mute sound" title="Toggle sound">♪</button><button id="pause-button" class="pause-btn" aria-label="Pause">Ⅱ</button></header>
     <section id="speed-panel" class="speed hidden"><div class="speed-num"><span id="speed">0</span><small>KM/H</small></div><div class="speed-rule"><i id="speed-bar"></i></div><div class="gear"><span id="gear">N</span> <small>GEAR</small></div></section>
-    <div id="right-info" class="right-info hidden"><div id="clock" class="clock">12:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div></div>
-    <div id="mini-map" class="mini-map hidden"><canvas id="map" width="150" height="150"></canvas><div class="map-label">DOWNTOWN</div></div>
-    <div id="hints" class="bottom-hint hidden"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>A LEFT · D RIGHT</span><kbd>SHIFT</kbd><span>RUN / BOOST</span><kbd>E</kbd><span>ENTER / EXIT</span><kbd>B</kbd><span>CALL BIKE</span><kbd>F</kbd><span>HIT</span><kbd>C</kbd><span>CAMERA</span><kbd>ESC</kbd><span>PAUSE</span></div>
-    <div id="touch-controls" class="touch-controls hidden" aria-label="Touch game controls">
-      <div class="touch-steer"><button type="button" data-key="a" aria-label="Turn left">◀</button><button type="button" data-key="d" aria-label="Turn right">▶</button></div>
-      <div class="touch-drive"><button type="button" data-key="w" class="touch-go" aria-label="Accelerate">▲</button><button type="button" data-key="s" aria-label="Brake or reverse">▼</button><button type="button" data-key="shift" aria-label="Boost or run">BOOST</button><button type="button" data-key="space" aria-label="Handbrake">HAND</button></div>
-      <div class="touch-actions"><button type="button" data-action="e">E · RIDE</button><button type="button" data-action="f">F · HIT</button><button type="button" data-action="b">B · BIKE</button><button type="button" data-action="c">C · CAM</button></div>
+    <div id="right-info" class="right-info hidden"><div id="clock" class="clock">22:00</div><div id="camera-label" class="camera-label">CHASE CAM <span>· C</span></div><div class="lighting-modes" role="group" aria-label="Lighting mode"><button id="auto-mode-button" class="day-night-button" type="button" aria-pressed="true" title="Night start · switches every 20 seconds">AUTO · 20S</button><button id="day-night-button" class="day-night-button" type="button" aria-pressed="false" title="Click to switch mode and lock it">DAY</button></div><button id="pause-night-button" class="pause-night-button" type="button" aria-label="Pause game" title="Pause game"><span aria-hidden="true"></span></button></div>
+    <div id="mini-map" class="mini-map hidden"><div class="map-head"><span>RIDE / CITY</span><b>LIVE</b></div><canvas id="map" width="220" height="220"></canvas><div class="map-label"><strong>H = HOME</strong><small>HOME LOCATION</small></div></div>
+    <div id="hints" class="bottom-hint hidden" aria-label="Keyboard controls">
+      <div class="hint-control hint-move"><div class="wasd-keys"><kbd>W</kbd><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div></div><div class="hint-copy"><b>RIDE</b><small>MOVE</small></div></div>
+      <div class="hint-control"><kbd class="wide-key">SHIFT</kbd><div class="hint-copy"><b>RUN / BOOST</b><small>ON FOOT / VEHICLE</small></div></div>
+      <div class="hint-control"><kbd>E</kbd><div class="hint-copy"><b>VEHICLE</b><small>ENTER / EXIT</small></div></div>
+      <div class="hint-control"><kbd>B</kbd><div class="hint-copy"><b>BIKE</b><small>CALL YOUR BIKE</small></div></div>
+      <div class="hint-control"><kbd>F</kbd><div class="hint-copy"><b>VEHICLE</b><small>ENTER / EXIT</small></div></div><div class="hint-control"><kbd>ENTER</kbd><div class="hint-copy"><b>HIT</b><small>MELEE</small></div></div><div class="hint-control"><kbd>SPACE</kbd><div class="hint-copy"><b>JUMP</b><small>ON FOOT</small></div></div>
+      <div class="hint-control"><kbd>C</kbd><div class="hint-copy"><b>CAMERA</b><small>CHANGE VIEW</small></div></div>
     </div>
-    <div id="toast" class="toast"></div>
-    <section id="pause-screen" class="veil menu hidden"><div class="menu-card"><div class="eyebrow">RIDE / CITY</div><h2>PAUSED</h2><button id="resume-button">RESUME <span>↗</span></button><button id="restart-button" class="secondary">RESTART RIDE</button><div class="control-list"><b>WASD / ARROWS</b><span>ACCELERATE · STEER · BRAKE</span><b>SHIFT</b><span>BOOST</span><b>C</b><span>CAMERA</span><b>SPACE</b><span>HANDBRAKE</span></div></div></section>
-    <div id="load-error" class="load-error hidden">লোকাল 3D ফাইলটি পাওয়া যায়নি। প্রজেক্টের ফাইলগুলো একই ফোল্ডারে আছে কি না দেখুন।</div>
+    <div id="touch-controls" class="touch-controls hidden" aria-label="Touch game controls">
+      <div class="touch-tip">LEFT: MOVE · RIGHT: CAMERA · HOLD TO MOVE</div>
+      <div id="touch-stick" class="touch-stick" aria-hidden="true"><div class="touch-stick-knob"></div></div>
+      <div class="touch-actions">
+        <div class="touch-secondary-actions">
+          <button type="button" data-key="space">JUMP</button>
+          <button type="button" data-action="c">CAM</button>
+          <button type="button" data-action="enter">HIT</button>
+        </div>
+        <div class="touch-primary-actions">
+          <button type="button" data-action="f" class="touch-car"><b>F · CAR</b><small>ENTER / EXIT</small></button>
+          <button type="button" data-key="shift" class="touch-boost">BOOST</button>
+          <button type="button" data-action="b" class="touch-bike">B · BIKE</button>
+        </div>
+      </div>
+    </div>
+    <div id="welcome-intro" class="welcome-intro hidden" aria-live="polite"><div class="welcome-card"><div class="welcome-avatar">N<span>+</span></div><div class="welcome-copy"><small>RIDE / CITY HOST</small><strong id="welcome-line">HI, I'M NIYAL</strong></div><button id="welcome-start" class="welcome-start" type="button">LET'S RIDE</button></div></div><div id="direction-pad" class="direction-pad hidden" aria-label="Movement controls"><button type="button" class="pad-up" data-key="w" aria-label="Move forward">&#9650;</button><button type="button" class="pad-left" data-key="a" aria-label="Turn left">&#9664;</button><span class="pad-center">MOVE</span><button type="button" class="pad-right" data-key="d" aria-label="Turn right">&#9654;</button><button type="button" class="pad-down" data-key="s" aria-label="Move backward">&#9660;</button></div><div id="context-help" class="context-help" aria-live="polite"></div><div id="toast" class="toast"></div>
+    <section id="pause-screen" class="veil menu hidden"><div class="menu-card"><div class="eyebrow">RIDE / CITY</div><h2>PAUSED</h2><button id="resume-button">RESUME <span>↗</span></button><button id="restart-button" class="secondary">RESTART RIDE</button><div class="control-list"><b>WASD / ARROWS</b><span>ACCELERATE / STEER / BRAKE</span><b>SHIFT</b><span>RUN / BOOST</span><b>F / E</b><span>ENTER / EXIT VEHICLE</span><b>ENTER</b><span>HIT (ON FOOT)</span><b>SPACE</b><span>JUMP / HANDBRAKE</span><b>C</b><span>CAMERA</span></div></div></section>
+    <div id="load-error" class="load-error hidden">Local 3D file not found. Check that all project files are in the same folder.</div>
   </main>
   <script>
     // Keep the start/pause interface responsive even if the 3D script fails.
@@ -35,7 +69,9 @@
       window.addEventListener('error', event => {
         window.__lastRideError = event.message || 'script could not load';
         const warning = byId('load-error');
-        warning.textContent = 'JavaScript error: ' + window.__lastRideError;
+        const source = event.filename ? event.filename.split('/').pop() + ':' + (event.lineno || 0) : '';
+        console.error('Ride City error', event.error || window.__lastRideError);
+        warning.textContent = 'JavaScript error: ' + window.__lastRideError + (source ? ' · ' + source : '');
         warning.classList.remove('hidden');
       });
       window.addEventListener('unhandledrejection', event => {
@@ -48,7 +84,34 @@
         byId('pause-screen').classList.add('hidden');
         ['hud','speed-panel','right-info','mini-map','hints','touch-controls'].forEach(id => byId(id).classList.remove('hidden'));
       };
-      byId('start-button').addEventListener('click', start);
+      const howToDialog = byId('how-to-play');
+      byId('how-to-button').addEventListener('click', () => howToDialog.showModal());
+      byId('how-to-close').addEventListener('click', () => howToDialog.close());
+      howToDialog.addEventListener('click', event => { if (event.target === howToDialog) howToDialog.close(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && howToDialog.open) { event.stopPropagation(); howToDialog.close(); } }, true);
+      byId('start-button').addEventListener('click', () => {
+        const ready = byId('ready-screen');
+        const startButton = byId('start-button');
+        startButton.disabled = true;
+        if (window.__rideAudioStart) window.__rideAudioStart();
+        if (matchMedia('(pointer: coarse)').matches && innerWidth <= 900 && document.documentElement.requestFullscreen) {
+          const fullscreenRequest = document.documentElement.requestFullscreen();
+          if (fullscreenRequest && fullscreenRequest.catch) fullscreenRequest.catch(() => {});
+        }
+        byId('title-screen').classList.add('hidden');
+        ready.classList.remove('hidden');
+        ready.classList.remove('play');
+        void ready.offsetWidth;
+        ready.classList.add('play');
+        setTimeout(() => {
+          ready.classList.add('hidden');
+          ready.classList.remove('play');
+          if (window.__rideMenuMusicStop) window.__rideMenuMusicStop();
+          if (window.__rideGameStart) window.__rideGameStart();
+          else start();
+          startButton.disabled = false;
+        }, 1850);
+      });
       byId('resume-button').addEventListener('click', start);
       byId('pause-button').addEventListener('click', () => byId('pause-screen').classList.remove('hidden'));
       byId('restart-button').addEventListener('click', start);
@@ -62,6 +125,6 @@
     })();
   </script>
   <script src="three.min.js?v=128" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
-  <script src="game.js?v=129" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
+  <script src="game.js?v=241" onerror="document.getElementById('load-error').classList.remove('hidden')"></script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+ <defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#11191e"/><stop offset=".58" stop-color="#40534d"/><stop offset="1" stop-color="#d49a59"/></linearGradient>
+  <linearGradient id="road" x2="0" y2="1"><stop stop-color="#303838"/><stop offset="1" stop-color="#101618"/></linearGradient>
+  <linearGradient id="shade"><stop stop-color="#0c1216" stop-opacity=".96"/><stop offset=".54" stop-color="#101719" stop-opacity=".42"/><stop offset="1" stop-color="#101719" stop-opacity=".08"/></linearGradient>
+  <pattern id="win" width="68" height="78" patternUnits="userSpaceOnUse"><rect x="12" y="12" width="38" height="48" rx="2" fill="#ddbd88" fill-opacity=".52"/><rect x="16" y="16" width="30" height="40" fill="#263235"/></pattern>
+ </defs>
+ <path fill="url(#sky)" d="M0 0h1920v1080H0z"/><circle cx="1260" cy="390" r="210" fill="#e0a35e" fill-opacity=".72"/>
+ <path fill="#172024" d="M0 0h490l170 470H0zm1920 0h-410l-130 475h540z"/><path fill="url(#win)" d="M0 0h490l170 470H0zm1920 0h-410l-130 475h540z" opacity=".8"/>
+ <path fill="#202a2c" d="M90 95h280l200 375H120zm1730-5h-260l-130 385h330z"/><path fill="url(#win)" d="M90 95h280l200 375H120zm1730-5h-260l-130 385h330z" opacity=".6"/>
+ <path fill="#253031" d="M0 470h1920v120H0z"/><path fill="url(#road)" d="M0 570h1920v510H0z"/>
+ <path fill="#d8a15e" fill-opacity=".55" d="M0 570h1920v15H0z"/><path d="m860 585-250 495h100l300-495zm170 0 300 495h100l-250-495z" fill="#e8e2d5" fill-opacity=".12"/>
+ <path d="M960 650v75m0 62v90m0 67v104" stroke="#f3eee1" stroke-opacity=".64" stroke-width="14" stroke-linecap="round"/>
+ <!-- rider and motorcycle silhouette -->
+ <g transform="translate(1370 115)">
+  <circle cx="75" cy="735" r="126" fill="#111719" stroke="#090e10" stroke-width="25"/><circle cx="475" cy="735" r="126" fill="#111719" stroke="#090e10" stroke-width="25"/>
+  <circle cx="75" cy="735" r="86" stroke="#8a9189" stroke-width="8"/><circle cx="475" cy="735" r="86" stroke="#8a9189" stroke-width="8"/>
+  <path d="m75 735 170-190 145 190H75zm170-190 86-26m-86 26-48-130m48 130-123-47" stroke="#9da39b" stroke-width="12"/>
+  <path d="m205 540 58-45 78 20 63 174H132z" fill="#ef233c"/><path d="m250 495 105 33-14 47-111-29z" fill="#ff5b67"/>
+  <path d="m325 520 40-135 52-10 28 154-63 22z" fill="#242d30"/><path d="m310 405 53-92 68 22-37 102-56 20z" fill="#d8a15e"/>
+  <path d="m325 355 52-122 77 20-39 113z" fill="#20292c"/><path d="m338 253c12-65 112-78 132 0l-19 22h-98z" fill="#d8a15e"/><circle cx="398" cy="264" r="53" fill="#13191b"/>
+  <path d="m320 405-100 136m106-135 106 120m-208 40 82-6m103 0 107 6" stroke="#20292c" stroke-width="30" stroke-linecap="round"/>
+  <path d="m198 702-63 37m350-50 64 29" stroke="#cfd0c8" stroke-width="17" stroke-linecap="round"/><circle cx="275" cy="705" r="15" fill="#ffd58c"/>
+ </g>
+ <path fill="url(#shade)" d="M0 0h1920v1080H0z"/>
+</svg>
